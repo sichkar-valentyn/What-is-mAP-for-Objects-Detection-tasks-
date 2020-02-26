@@ -69,7 +69,7 @@ Then, average of maximum precision values is computed for these *11 Recall point
 ![Average](https://github.com/sichkar-valentyn/What-is-mAP-for-Objects-Detection-tasks-/blob/master/images/ap.png "Average")
 
 From our example, *AP* will be calculated as following:
-**AP = (1/11) * (1+1+1+0.75+0.75+0.75+0.75+0.71+0.71+0.71+0.71) = 0.81**
+<br/>**AP = (1/11) * (1+1+1+0.75+0.75+0.75+0.75+0.71+0.71+0.71+0.71) = 0.81**
 
 <br/>
 
