@@ -12,6 +12,7 @@ mAP as a main metric for Objects Detection
 ### :point_right: Join the Course
 [https://www.udemy.com/course/training-yolo-v3-for-objects-detection-with-custom-data/](https://www.udemy.com/course/training-yolo-v3-for-objects-detection-with-custom-data/?referralCode=A283956A57327E37DDAD)
 
+<br/>
 
 ### Content
 * [Definition](#definition)
