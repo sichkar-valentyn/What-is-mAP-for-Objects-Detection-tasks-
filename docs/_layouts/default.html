@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="en-US">
 
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="/What-is-mAP-for-Objects-Detection-tasks-/images/favicon.ico" />
 
-{% seo %}
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>What is mAP for Objects Detection tasks? - Valentyn Sichkar</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="What is mAP for Objects Detection tasks?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Understanding of use of mAP as a metric for Objects Detection problems" />
+<meta property="og:description" content="Understanding of use of mAP as a metric for Objects Detection problems" />
+<link rel="canonical" href="https://sichkar-valentyn.github.io/What-is-mAP-for-Objects-Detection-tasks-/" />
+<meta property="og:url" content="https://sichkar-valentyn.github.io/What-is-mAP-for-Objects-Detection-tasks-/" />
+<meta property="og:site_name" content="What-is-mAP-for-Objects-Detection-tasks-" />
+<script type="application/ld+json">
+{"headline":"What is mAP for Objects Detection tasks?","@type":"WebSite","url":"https://sichkar-valentyn.github.io/What-is-mAP-for-Objects-Detection-tasks-/","name":"What-is-mAP-for-Objects-Detection-tasks-","description":"Understanding of use of mAP as a metric for Objects Detection problems","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
   </head>
 
   <body>
@@ -15,48 +29,199 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          {% if site.github.is_project_page %}
-            <a id="forkme_banner" href="{{ site.github.repository_url }}">View on GitHub</a>
-          {% endif %}
+          <a id="forkme_banner" href="https://github.com/sichkar-valentyn/What-is-mAP-for-Objects-Detection-tasks-">View on GitHub</a>
 
-          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-          <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+          <h1 id="project_title">What is mAP for Objects Detection tasks-</h1>
+          <h2 id="project_tagline">Understanding of use of mAP as a metric for Objects Detection problems</h2>
 
-          {% if site.show_downloads %}
-            <section id="downloads">
-              <a class="zip_download_link" href="{{ site.github.zip_url }}">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="{{ site.github.tar_url }}">Download this project as a tar.gz file</a>
-            </section>
-          {% endif %}
+          
+          <a href="https://sichkar-valentyn.github.io">by Valentyn Sichkar</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://ifmo.academia.edu/ValentynSichkar" target="_blank">Academia.edu</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/channel/UCHlzRR0y54SLbcHwLzrUcfw" target="_blank">YouTube</a>        
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        {{ content }}
+        <h1 id="what-is-map-for-objects-detection-tasks">What is mAP for Objects Detection tasks?</h1>
+<p>mAP as a main metric for Objects Detection</p>
+
+<h3 id="mortar_board-related-course-where-map-is-used">Related Course where mAP is used</h3>
+<p><strong>Training YOLO v3 for Objects Detection with Custom Data.</strong> <em>Build your own detector by labelling, training and testing on image, video and in real time with camera.</em> Join here: <a href="https://www.udemy.com/course/training-yolo-v3-for-objects-detection-with-custom-data/?referralCode=A283956A57327E37DDAD">https://www.udemy.com/course/training-yolo-v3-for-objects-detection-with-custom-data/</a></p>
+
+<p><img src="/What-is-mAP-for-Objects-Detection-tasks-/images/slides_detections_2.gif" alt="Detections on Images" title="YOLO v3 Objects Detections on Images" /></p>
+
+<h3 id="triangular_flag_on_post-concept-map-of-the-course">Concept Map of the Course</h3>
+<p><img src="/What-is-mAP-for-Objects-Detection-tasks-/images/Concept_map_YOLO_3_.png" alt="Concept Map of the Course" title="Concept Map of the Course" /></p>
+
+<h3 id="point_right-join-the-course">Join the Course</h3>
+<p><a href="https://www.udemy.com/course/training-yolo-v3-for-objects-detection-with-custom-data/?referralCode=A283956A57327E37DDAD">https://www.udemy.com/course/training-yolo-v3-for-objects-detection-with-custom-data/</a></p>
+
+<p><br /></p>
+
+<h3 id="content">Content</h3>
+<ul>
+  <li><a href="#definition">Definition</a></li>
+  <li><a href="#important-terminology">Important terminology</a></li>
+  <li><a href="#average-precision">Calculating Average Precision (AP)</a></li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="definition"><a id="definition">Definition</a></h3>
+<p><strong>mAP (mean average precision)</strong> is a metric used to evaluate accuracy, in our case, for <em>Objects Detection</em> tasks.
+In general, to calculate <em>mAP</em> for a custom model that is trained for <em>Objects Detection tasks</em>, firstly, <em>Average Precision</em> is calculated for every class in the custom model. Then, mean of these calculated <em>Average Precisions</em> across all classes gives <em>mAP</em>.
+<em>Pay attention!</em> Some papers use Average Precision and mAP interchangeably.</p>
+
+<p><br /></p>
+
+<h3 id="important-terminology"><a id="important-terminology">Important terminology</a></h3>
+<p>Understanding the calculation process of <em>Average Precision</em> needs to update knowledge of definitions for used parameters.</p>
+
+<ul class="task-list">
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>Threshold</strong> is used to identify whether prediction of <em>Bounding Box (BB)</em> can be considered as <em>True</em> or <em>False</em>. Usually threshold is set to one of the following: <strong>50%, 75%, 95%</strong>.</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>Intersection Over Union (IoU)</strong> is a measure that is used to evaluate <strong>overlap</strong> between two <strong>Bounding Boxes (BB)</strong>. <em>IoU</em> shows how much predicted <em>BB</em> overlaps with so called <strong>Ground Truth BB</strong> (the one that has real object inside). Comparing <em>IoU</em> with threshold it is possible to define whether predicted <em>BB</em> is <strong>True Positive</strong> (valid in other words) or <strong>False Positive</strong> (not valid).
+<strong>IoU</strong> is calculated by overlapping area between <em>predicted BB</em> and <em>Ground Truth BB</em> divided by union area of two <em>BB</em> as shown on the Figure below.
+<img src="/What-is-mAP-for-Objects-Detection-tasks-/images/iou.png" alt="Intersection Over Union (IoU)" title="Intersection Over Union (IoU)" /></p>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>True Positive (TP)</strong> is a number of BB with correct predictions, IoU ≥ threshold</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>False Positive (FP)</strong> is a number of BB with wrong predictions, IoU &lt; threshold</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>False Negative (FN)</strong> is a number of Ground Truth BB that are not detected</li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>True Negative (TN)</strong> is a number of BB that are correctly not predicted (as many as possible within an image but not overlap any Ground Truth BB); this parameter is not used for calculating metrics</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>Precision</strong> represents percentage of correct <em>positive predictions of BB</em> (how accurate are predicted BB) and shows an ability of the trained model to detect relevant objects. <em>Precision</em> is calculated as following:
+<img src="/What-is-mAP-for-Objects-Detection-tasks-/images/precision.png" alt="Precision" title="Precision" /></p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>Recall</strong> represents percentage of <em>True Positive predictions of BB</em> among all relevant <em>Ground Truth BB</em> and shows an ability of the trained model to detect all <em>Ground Truth BB</em>. <em>Recall</em> is calculated as following:
+<img src="/What-is-mAP-for-Objects-Detection-tasks-/images/recall.png" alt="Recall" title="Precision" /></p>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>Precision and Recall curve</strong> represents performance of the trained model by plotting a curve of Precisions values against Recalls values and form a kind of zig-zag graph as shown on Figure below.
+<img src="/What-is-mAP-for-Objects-Detection-tasks-/images/precision_recall_curve.png" alt="Precision and Recall curve" title="Precision and Recall curve" /></li>
+</ul>
+
+<p>In order to plot <em>Precision and Recall curve</em>, it is needed to collect detected BB by their confidences in <em>descending order</em>. Then, calculate <em>Precision</em> and <em>Recall</em> for every detected BB as it is shown in Table below. In current example, threshold is set to 50% saying that predicted BB is correct if <em>IoU ≥ 0.5</em>. Total number of correct predictions TP = 5 and total number of wrong predictions FP = 5.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>BB</th>
+      <th>Confidence</th>
+      <th>TP or FP</th>
+      <th>Precision</th>
+      <th>Recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>96%</td>
+      <td>TP</td>
+      <td>1/1 = 1</td>
+      <td>1/5 = 0.2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>94%</td>
+      <td>FP</td>
+      <td>1/2 = 0.5</td>
+      <td>1/5 = 0.2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>90%</td>
+      <td>TP</td>
+      <td>2/3 = 0.67</td>
+      <td>2/5 = 0.4</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>89%</td>
+      <td>TP</td>
+      <td>3/4 = 0.75</td>
+      <td>3/5 = 0.6</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>81%</td>
+      <td>FP</td>
+      <td>3/5 = 0.6</td>
+      <td>3/5 = 0.6</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>75%</td>
+      <td>TP</td>
+      <td>4/6 = 0.67</td>
+      <td>4/5 = 0.8</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>63%</td>
+      <td>TP</td>
+      <td>5/7 = 0.71</td>
+      <td>5/5 = 1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>59%</td>
+      <td>FP</td>
+      <td>5/8 = 0.62</td>
+      <td>5/5 = 1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>54%</td>
+      <td>FP</td>
+      <td>5/9 = 0.56</td>
+      <td>5/5 = 1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>51%</td>
+      <td>FP</td>
+      <td>5/10 = 0.5</td>
+      <td>5/5 = 1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="calculating-average-precision-ap"><a id="average-precision">Calculating Average Precision (AP)</a></h3>
+<p><em>AP</em> is calculated by considering area under <strong>Interpolated Precision and Recall curve</strong>. Firstly, <em>Recall</em> values are divided into <em>11 points</em> as following: <em>[0, 0.1, 0,2 … 1]</em> as shown on Figure below.
+<img src="/What-is-mAP-for-Objects-Detection-tasks-/images/ap_curve.png" alt="Interpolated Precision and Recall curve" title="Interpolated Precision and Recall curve" /></p>
+
+<p>Then, average of maximum precision values is computed for these <em>11 Recall points</em>.
+<img src="/What-is-mAP-for-Objects-Detection-tasks-/images/ap.png" alt="Average" title="Average" /></p>
+
+<p>From our example, <em>AP</em> will be calculated as following:
+<br /><strong>AP = (1/11) * (1+1+1+0.75+0.75+0.75+0.75+0.71+0.71+0.71+0.71) = 0.81</strong></p>
+
+<p><br /></p>
+
+<h3 id="mit-license">MIT License</h3>
+<h3 id="copyright-c-2020-valentyn-n-sichkar">Copyright (c) 2020 Valentyn N Sichkar</h3>
+<h3 id="githubcomsichkar-valentyn">github.com/sichkar-valentyn</h3>
+
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        {% if site.github.is_project_page %}
-        <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        
+        <p class="copyright">What is mAP for Objects Detection tasks maintained by <a href="https://github.com/sichkar-valentyn">sichkar-valentyn</a></p>
+
       </footer>
     </div>
 
-    {% if site.google_analytics %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {% endif %}
+    
   </body>
 </html>
